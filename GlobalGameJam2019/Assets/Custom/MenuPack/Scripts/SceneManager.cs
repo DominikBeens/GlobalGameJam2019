@@ -216,6 +216,16 @@ namespace DB.MenuPack
             }
         }
 
+        public void MainMenuButton()
+        {
+            if (isPaused)
+            {
+                PauseGame();
+            }
+
+            LoadScene(0, true);
+        }
+
         public void QuitGame()
         {
             Application.Quit();
