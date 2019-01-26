@@ -37,8 +37,8 @@ public class BirdMovement : MonoBehaviour {
             timer = coolDown;
 
             if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+                myRidgidbody.angularVelocity = 0;
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
-                //transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime * 4));
                 myAnimator.SetInteger("State", 3);
             }
             else {
@@ -56,7 +56,15 @@ public class BirdMovement : MonoBehaviour {
 
                 myRidgidbody.velocity = new Vector2(myRidgidbody.velocity.x, 0);
                 myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
-                myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+
+                if (transform.up.y < 0) {
+                    myRidgidbody.angularVelocity = 0;
+                    myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed / 2, ForceMode2D.Impulse);
+                }
+                else {
+                    myRidgidbody.angularVelocity = 0;
+                    myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+                }
             }
         }
         else if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
