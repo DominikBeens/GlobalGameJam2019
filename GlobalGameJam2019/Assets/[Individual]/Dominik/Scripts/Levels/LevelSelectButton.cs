@@ -20,10 +20,13 @@ public class LevelSelectButton : MonoBehaviour
 
     private void Start()
     {
+        button.onClick.AddListener(() => LevelManager.instance.SelectLevelToPlay(sceneToLoad));
+    }
+
+    public void UpdateLock()
+    {
         levelData = LevelManager.instance.GetLevelData(sceneToLoad);
         ToggleLock(levelData.locked);
-
-        button.onClick.AddListener(() => LevelManager.instance.SelectLevelToPlay(sceneToLoad));
     }
 
     private void OnValidate()

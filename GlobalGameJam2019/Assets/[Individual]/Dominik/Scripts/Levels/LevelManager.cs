@@ -10,11 +10,14 @@ public class LevelManager : MonoBehaviour
 
     private static int currentLevel;
 
+    private LevelSelectButton[] levelSelectButtons;
+
     [SerializeField] private GameObject menuCanvas;
 
     [Space]
 
     [SerializeField] private List<LevelData> levelData;
+
     [SerializeField] private GameObject selectedLevelPanel;
     [SerializeField] private TextMeshProUGUI selectedLevelText;
     [SerializeField] private Transform levelSelectButtonHolder;
@@ -39,8 +42,11 @@ public class LevelManager : MonoBehaviour
         }
 
         selectedLevelPanel.SetActive(false);
+        levelSelectButtons = FindObjectsOfType<LevelSelectButton>();
         levelSelectionIndicator.SetActive(false);
-        levelPopupCanvas.SetActive(false);
+
+        HidePopupPanel();
+
         SceneManager.OnLevelLoaded += SceneManager_OnLevelLoaded;
         SceneManager_OnLevelLoaded();
     }
@@ -96,6 +102,23 @@ public class LevelManager : MonoBehaviour
         selectedLevelPanel.SetActive(false);
         levelSelectionIndicator.SetActive(false);
         menuCanvas.SetActive(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ? true : false);
+        HidePopupPanel();
+        SetLevelAccesibility();
+    }
+
+    public void SetLevelAccesibility()
+    {
+        if (!HighscoreManager.instance)
+        {
+            return;
+        }
+
+        int highestLevel = HighscoreManager.instance.LastLevel();
+        for (int i = 0; i < levelData.Count; i++)
+        {
+            levelData[i].locked = levelData[i].level <= highestLevel ? false : true;
+            levelSelectButtons[i].UpdateLock();
+        }
     }
 
     public void CollectPickup()
@@ -148,6 +171,11 @@ public class LevelManager : MonoBehaviour
         levelPopupHeaderText.text = "Time is up!";
         levelPopupScoreText.text = "";
         levelPopupCanvas.SetActive(true);
+    }
+
+    private void HidePopupPanel()
+    {
+        levelPopupCanvas.SetActive(false);
     }
 
     private void OnDisable()
