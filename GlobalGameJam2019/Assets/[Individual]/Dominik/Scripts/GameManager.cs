@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     private GameObject bird;
 
     [SerializeField] private GameObject birdPrefab;
-    [SerializeField] private NewHighscore newHighscore;
 
     private void Awake()
     {
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
             Destroy(bird);
 
             bird = Instantiate(birdPrefab, transform.position, Quaternion.identity);
-            newHighscore.StartScore();
+            NewHighscore.instance?.StartScore();
         }
     }
 }

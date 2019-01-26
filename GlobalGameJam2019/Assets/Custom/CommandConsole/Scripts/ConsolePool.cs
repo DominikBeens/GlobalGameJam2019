@@ -66,12 +66,20 @@ namespace DB.CommandConsole
             {
                 case PoolType.Log:
                     messageObj = logPool.Dequeue();
-                    message = messageObj.GetComponent<ConsoleLogMessage>();
+                    ConsoleLogMessage temp = messageObj.GetComponent<ConsoleLogMessage>();
+                    if (temp)
+                    {
+                        message = temp;
+                    }
                     break;
 
                 case PoolType.Command:
                     messageObj = commandPool.Dequeue();
-                    message = messageObj.GetComponent<ConsoleCommandMessage>();
+                    ConsoleCommandMessage temp2 = messageObj.GetComponent<ConsoleCommandMessage>();
+                    if (temp2)
+                    {
+                        message = temp2;
+                    }
                     break;
             }
 

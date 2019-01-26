@@ -26,8 +26,6 @@ namespace DB.CommandConsole
 
             ResetPosition();
             console = transform.root.GetComponent<ConsoleWindow>();
-
-            DontDestroyOnLoad(gameObject);
         }
 
         public virtual void Init(string message, TimeSpan time, string fullCommand)
@@ -37,8 +35,6 @@ namespace DB.CommandConsole
 
             ResetPosition();
             console = transform.root.GetComponent<ConsoleWindow>();
-
-            DontDestroyOnLoad(gameObject);
         }
 
         public MessageType GetMessageType()

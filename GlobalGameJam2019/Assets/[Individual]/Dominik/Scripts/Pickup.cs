@@ -4,6 +4,7 @@ public class Pickup : MonoBehaviour
 {
 
     [SerializeField] private GameObject pickupParticle;
+    [SerializeField] private int pickupScore = 15;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +17,8 @@ public class Pickup : MonoBehaviour
     private void Collect()
     {
         LevelManager.instance?.CollectPickup();
-        NotificationManager.instance?.NewNotification("Pickup Collected!");
+        NewHighscore.instance?.Pickup(pickupScore);
+        NotificationManager.instance?.NewNotification($"Pickup collected! +{pickupScore} score!");
         Instantiate(pickupParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
