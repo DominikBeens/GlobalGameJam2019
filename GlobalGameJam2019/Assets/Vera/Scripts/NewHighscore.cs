@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class NewHighscore : MonoBehaviour
 {
@@ -14,9 +16,16 @@ public class NewHighscore : MonoBehaviour
     [SerializeField] private int seconds;
     [SerializeField] private int minutes;
 
+    [Header("TextComponents")]
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text secondText;
+    [SerializeField] private TMP_Text minuteText;
+    [SerializeField] private TMP_InputField nameInput;
+    private int pickupScore;
 
-    [KeyCommand(KeyCode.V, PressType.KeyPressType.Down)]
-    private void SS()
+    [SerializeField] private int level;
+
+    private void Start()
     {
         StartScore(300, 5000);
     }
@@ -58,14 +67,29 @@ public class NewHighscore : MonoBehaviour
     private int GetScore()
     {
         int score = Mathf.RoundToInt(timeLeft * decrement);
+        score += pickupScore;
         return score;
     }
 
-    [KeyCommand(KeyCode.S, PressType.KeyPressType.Down)]
-    private void Finished()
+
+    private void Pickup(int score)
     {
-        Highscore newHighscore = new Highscore();
-        newHighscore.score = GetScore();
-        HighscoreManager.instance.Save(newHighscore);
+        pickupScore += score;
+    }
+
+    [KeyCommand(KeyCode.C, PressType.KeyPressType.Down)]
+    private void Coin()
+    {
+        Pickup(50);
+    }
+
+    public void Finished()
+    {
+        if(nameInput.text != "")
+        {
+            Highscore newHighscore = new Highscore();
+            newHighscore.score = GetScore();
+            HighscoreManager.instance.AddScore(newHighscore, nameInput.text,level -1);
+        }
     }
 }
