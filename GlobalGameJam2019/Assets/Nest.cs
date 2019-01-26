@@ -8,7 +8,7 @@ public class Nest : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Birb")
+        if (collision.gameObject.layer == 9)
         {
             LevelManager.instance.ShowLevelCompletePopup(hS.GetScore(), hS.Finished());
             hS.Finished();
