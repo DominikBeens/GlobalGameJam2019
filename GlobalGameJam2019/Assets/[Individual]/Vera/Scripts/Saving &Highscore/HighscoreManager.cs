@@ -10,8 +10,8 @@ public class HighscoreManager : MonoBehaviour
 {
     public static HighscoreManager instance;
     public string currentName;
-    [SerializeField] private List< AllHighscore> allHighscore = new List<AllHighscore>();
-    [SerializeField] private List<AllNames> names = new List<AllNames>();
+    [SerializeField] private List <AllHighscore> allHighscore = new List<AllHighscore>();
+    [SerializeField] private List <AllNames> names = new List<AllNames>();
     [SerializeField] private int amountLevel;
 
     private void Awake()
@@ -58,10 +58,22 @@ public class HighscoreManager : MonoBehaviour
                         if (o < allHighscore[i].scores.Count)
                         {
                             allHighscore[i].scores[o] = LoadScore(names[i].names[o],i);
+                            
                         }
                         else
                         {
                             allHighscore[i].scores.Add(LoadScore(names[i].names[o],i));
+                        }
+
+                        if(o < allHighscore[i].levelPlayed.Count)
+                        {
+                            Highscore temp = LoadScore(names[i].names[o], i);
+                            allHighscore[i].levelPlayed[o] = temp.level;
+                        }
+                        else
+                        {
+                            Highscore temp = LoadScore(names[i].names[o], i);
+                            allHighscore[i].levelPlayed.Add(temp.level);
                         }
                     }
                 }
@@ -117,11 +129,11 @@ public class HighscoreManager : MonoBehaviour
                 }
                 if(i < allHighscore[level].levelPlayed.Count)
                 {
-                    allHighscore[level].levelPlayed[i] = level;
+                    allHighscore[level].levelPlayed[i] = level+1;
                 }
                 else
                 {
-                    allHighscore[level].levelPlayed.Add(level);
+                    allHighscore[level].levelPlayed.Add(level+1);
                 }
             }
             if (exists)
@@ -151,8 +163,19 @@ public class HighscoreManager : MonoBehaviour
         int lvl = 0;
         for (int i = 0; i < allHighscore.Count; i++)
         {
-            lvl = allHighscore[i].names.IndexOf(currentName);
+            int test = allHighscore[i].names.IndexOf(currentName);
+
+                if(test>= 0)
+            {
+                if(allHighscore[i].levelPlayed.Count != 0)
+                {
+                    lvl = allHighscore[i].levelPlayed[test];
+                }
+
+            }
+
         }
+        lvl++;
         return lvl;
     }
     private bool Exists(string name, int level)
@@ -161,9 +184,10 @@ public class HighscoreManager : MonoBehaviour
         return File.Exists(Application.persistentDataPath +"/Level"+ level.ToString() + "/SavedGame_" + name + ".xml");
     }
 
-    private void SaveScore(Highscore tS,string name,int level)
+    private void SaveScore(Highscore tS,string name,int level, int lastLevel)
     {
         level++;
+        tS.level = lastLevel;
         ByteSave toSave = new ByteSave();
         toSave.save = ObjectToByteArray(tS);
         var serializer = new XmlSerializer(typeof(ByteSave));
@@ -243,7 +267,7 @@ public class HighscoreManager : MonoBehaviour
 
             for (int o = 0; o < allHighscore[i].names.Count; o++)
             {
-                SaveScore(allHighscore[i].scores[o], allHighscore[i].names[o],i);
+                SaveScore(allHighscore[i].scores[o], allHighscore[i].names[o],i,allHighscore[i].levelPlayed[o]);
             }
             SaveNames(saveFile,i);
         }

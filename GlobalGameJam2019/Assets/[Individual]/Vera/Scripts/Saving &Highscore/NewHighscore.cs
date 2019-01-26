@@ -109,7 +109,7 @@ public class NewHighscore : MonoBehaviour
     {
             Highscore newHighscore = new Highscore();
             newHighscore.score = GetScore();
-        return HighscoreManager.instance.AddScore(newHighscore, HighscoreManager.instance.currentName, level - 1);
+            return HighscoreManager.instance.AddScore(newHighscore, HighscoreManager.instance.currentName, level - 1);
         
     }
 }
