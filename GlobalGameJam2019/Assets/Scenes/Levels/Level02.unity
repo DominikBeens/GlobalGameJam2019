@@ -23977,6 +23977,16 @@ PrefabInstance:
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 968902170285737874, guid: 7dd8a2e866c815e448bf41920b188e52,
+        type: 3}
+      propertyPath: timeForLevel
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 968902170285737874, guid: 7dd8a2e866c815e448bf41920b188e52,
+        type: 3}
+      propertyPath: maxScore
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 968902169295816969, guid: 7dd8a2e866c815e448bf41920b188e52,
         type: 3}
       propertyPath: m_havePropertiesChanged

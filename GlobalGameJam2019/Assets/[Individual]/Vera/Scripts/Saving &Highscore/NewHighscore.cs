@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class NewHighscore : MonoBehaviour
 {
+    public static NewHighscore instance;
+
     [SerializeField] private float timeForLevel;
     [SerializeField] private float maxScore;
     [SerializeField] private float decrement;
@@ -26,6 +28,14 @@ public class NewHighscore : MonoBehaviour
     [SerializeField] private GameObject feather;
 
     [SerializeField] private int level;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -91,7 +101,7 @@ public class NewHighscore : MonoBehaviour
         return score;
     }
 
-    private void Pickup(int score)
+    public void Pickup(int score)
     {
         pickupScore += score;
     }

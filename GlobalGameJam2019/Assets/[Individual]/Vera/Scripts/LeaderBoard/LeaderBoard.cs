@@ -34,7 +34,7 @@ public class LeaderBoard : MonoBehaviour
         {
             for (int i = 0; i < levels[current].score.Count; i++)
             {
-                namesText[i].text = i.ToString()+ ": " + levels[current].playerName[i];
+                namesText[i].text = (i + 1).ToString()+ ": " + levels[current].playerName[i];
                 scoreText[i].text = levels[current].score[i].ToString();
             }
         }
