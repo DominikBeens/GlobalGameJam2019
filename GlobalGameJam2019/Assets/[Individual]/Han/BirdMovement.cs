@@ -5,6 +5,7 @@ using UnityEngine;
 public class BirdMovement : MonoBehaviour {
     Rigidbody2D myRidgidbody;
     BoxCollider2D myCheckbox;
+    Animator myAnimator;
     [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
@@ -17,6 +18,7 @@ public class BirdMovement : MonoBehaviour {
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
         myCheckbox = GetComponent<BoxCollider2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -30,25 +32,38 @@ public class BirdMovement : MonoBehaviour {
     void MovementUpdate() {
         timer -= Time.deltaTime;
 
+        myAnimator.SetInteger("State", 0);
         if (MovementAxis() && timer < 0) {
             timer = coolDown;
 
             if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
-                transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime * 4));
+                //transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime * 4));
+                myAnimator.SetInteger("State", 3);
             }
             else {
+                if (newMovementAxis.x == 1) {
+                    if (newMovementAxis.y == 1) {
+                        myAnimator.SetInteger("State", 3);
+                    }
+                    else {
+                        myAnimator.SetInteger("State", 2);
+                    }
+                }
+                else {
+                    myAnimator.SetInteger("State", 1);
+                }
+
                 myRidgidbody.velocity = new Vector2(myRidgidbody.velocity.x, 0);
                 myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
                 myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
             }
         }
+        else if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime));
+        }
         else if (myRidgidbody.velocity.x < 0.4 && myRidgidbody.velocity.x > -0.4 && myRidgidbody.velocity.y < 0.4 && myRidgidbody.velocity.y > -0.4) {
             transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeSpeed * Time.deltaTime));
-        }
-
-        if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
-            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime));
         }
     }
 

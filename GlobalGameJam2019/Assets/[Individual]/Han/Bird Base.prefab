@@ -208,13 +208,8 @@ PrefabInstance:
       objectReference: {fileID: 3211894442850206895}
     - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
-      propertyPath: stabelizeAirSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
-        type: 3}
       propertyPath: coolDown
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5470410652538801768, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
