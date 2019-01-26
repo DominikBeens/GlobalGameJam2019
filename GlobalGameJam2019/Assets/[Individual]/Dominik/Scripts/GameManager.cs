@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         if (bird)
         {
             bird.GetComponentInChildren<BirdMovement>().Freeze();
+            NotificationManager.instance?.NewNotification("Level Failed!");
 
             yield return new WaitForSeconds(2);
 
