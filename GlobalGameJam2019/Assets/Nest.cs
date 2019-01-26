@@ -10,6 +10,7 @@ public class Nest : MonoBehaviour
     {
         if (collision.gameObject.tag == "Birb")
         {
+            LevelManager.instance.ShowLevelCompletePopup(hS.GetScore(), hS.Finished());
             hS.Finished();
         }
     }

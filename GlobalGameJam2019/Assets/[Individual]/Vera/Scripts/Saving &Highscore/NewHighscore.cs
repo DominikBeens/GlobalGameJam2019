@@ -78,7 +78,7 @@ public class NewHighscore : MonoBehaviour
         
     }
 
-    private int GetScore()
+    public int GetScore()
     {
         int score = Mathf.RoundToInt(timeLeft * decrement);
         score += pickupScore;
@@ -105,11 +105,11 @@ public class NewHighscore : MonoBehaviour
     }
 
     [KeyCommand(KeyCode.M, PressType.KeyPressType.Down)]
-    public void Finished()
+    public bool Finished()
     {
             Highscore newHighscore = new Highscore();
             newHighscore.score = GetScore();
-            HighscoreManager.instance.AddScore(newHighscore, HighscoreManager.instance.currentName,level -1);
+        return HighscoreManager.instance.AddScore(newHighscore, HighscoreManager.instance.currentName, level - 1);
         
     }
 }
