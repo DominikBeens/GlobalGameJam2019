@@ -27,7 +27,7 @@ public class BirdMovement : MonoBehaviour {
 
     void Update() {
         if (!frozen) {
-            myCamera.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(myCamera.localPosition.z - Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed, minZoom, maxZoom));
+            myCamera.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(myCamera.localPosition.z + Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed, minZoom, maxZoom));
             MovementUpdate();
         }
 
