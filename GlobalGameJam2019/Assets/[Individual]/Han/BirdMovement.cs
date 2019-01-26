@@ -5,8 +5,9 @@ using UnityEngine;
 public class BirdMovement : MonoBehaviour {
     Rigidbody2D myRidgidbody;
     BoxCollider2D myCheckbox;
-    [SerializeField] Animator leftWingAnimator;
-    [SerializeField] Animator rightWingAnimator;
+    [SerializeField] Animator birdAnimator;
+    //[SerializeField] Animator leftWingAnimator;
+    //[SerializeField] Animator rightWingAnimator;
     [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
@@ -43,24 +44,30 @@ public class BirdMovement : MonoBehaviour {
                 timerRight = coolDown;
                 myRidgidbody.angularVelocity = 0;
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
-                rightWingAnimator.SetTrigger("Fly");
-                leftWingAnimator.SetTrigger("Fly");
+                birdAnimator.SetTrigger("FlapR");
+                birdAnimator.SetTrigger("FlapL");
+                //rightWingAnimator.SetTrigger("Fly");
+                //leftWingAnimator.SetTrigger("Fly");
             }
             else {
                 if (newMovementAxis.x == 1) {
                     if (newMovementAxis.y == 1) {
-                        rightWingAnimator.SetTrigger("Fly");
-                        leftWingAnimator.SetTrigger("Fly");
+                        birdAnimator.SetTrigger("FlapR");
+                        birdAnimator.SetTrigger("FlapL");
+                        //rightWingAnimator.SetTrigger("Fly");
+                        //leftWingAnimator.SetTrigger("Fly");
                         timerLeft = coolDown;
                         timerRight = coolDown;
                     }
                     else {
-                        leftWingAnimator.SetTrigger("Fly");
+                        birdAnimator.SetTrigger("FlapR");
+                        //leftWingAnimator.SetTrigger("Fly");
                         timerRight = coolDown;
                     }
                 }
                 else {
-                    rightWingAnimator.SetTrigger("Fly");
+                    birdAnimator.SetTrigger("FlapL");
+                    //rightWingAnimator.SetTrigger("Fly");
                     timerLeft = coolDown;
                 }
 
