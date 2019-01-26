@@ -32,7 +32,7 @@ public class NewHighscore : MonoBehaviour
         StartScore();
     }
 
-    private void StartScore()
+    public void StartScore()
     {
         decrement = maxScore / timeForLevel;
         timeLeft = timeForLevel;
@@ -40,7 +40,7 @@ public class NewHighscore : MonoBehaviour
 
     private void Update()
     {
-        if(timeLeft > 0)
+        if(timeLeft >= 0)
         {
             UpdateTime();
         }
@@ -48,6 +48,12 @@ public class NewHighscore : MonoBehaviour
 
     private void UpdateTime()
     {
+        if(timeLeft == 0)
+        {
+            LevelManager.instance.ShowTimeUpPopup();
+            return;
+        }
+
         time += Time.deltaTime;
         if(time > 1)
         {
