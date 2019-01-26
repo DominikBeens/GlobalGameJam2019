@@ -10,9 +10,15 @@ public class LevelManager : MonoBehaviour
 
     private int selectedLevel;
 
+    [SerializeField] private Canvas menuCanvas;
+
+    [Space]
+
     [SerializeField] private List<LevelData> levelData;
     [SerializeField] private GameObject selectedLevelPanel;
     [SerializeField] private TextMeshProUGUI selectedLevelText;
+    [SerializeField] private Transform levelSelectButtonHolder;
+    [SerializeField] private GameObject levelSelectionIndicator;
 
     private void Awake()
     {
@@ -24,9 +30,13 @@ public class LevelManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
         selectedLevelPanel.SetActive(false);
+        levelSelectionIndicator.SetActive(false);
+        SceneManager.OnLevelLoaded += SceneManager_OnLevelLoaded;
+        SceneManager_OnLevelLoaded();
     }
 
     public LevelData GetLevelData(int level)
@@ -57,13 +67,31 @@ public class LevelManager : MonoBehaviour
     public void SelectLevelToPlay(int level)
     {
         selectedLevel = level;
+
+        selectedLevelPanel.SetActive(false);
         selectedLevelText.text = $"Selected level: {selectedLevel}";
         selectedLevelPanel.SetActive(true);
+
+        levelSelectionIndicator.SetActive(false);
+        levelSelectionIndicator.transform.position = levelSelectButtonHolder.GetChild(level - 1).transform.position;
+        levelSelectionIndicator.SetActive(true);
     }
 
     public void LoadLevel()
     {
         selectedLevelPanel.SetActive(false);
         SceneManager.instance.LoadScene(selectedLevel, false);
+    }
+
+    private void SceneManager_OnLevelLoaded()
+    {
+        selectedLevelPanel.SetActive(false);
+        levelSelectionIndicator.SetActive(false);
+        menuCanvas.enabled = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ? true : false;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.OnLevelLoaded -= SceneManager_OnLevelLoaded;
     }
 }
