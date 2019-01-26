@@ -2193,6 +2193,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelectButton L2
       objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_text
+      value: 'Level: 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 3753333178944411373}
     - target: {fileID: 7140022608886459225, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2313,26 +2333,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 3753333178720870805}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_text
-      value: 'Level: 2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_textInfo.textComponent
-      value: 
-      objectReference: {fileID: 3753333178944411373}
     - target: {fileID: 7007934658256352176, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2410,6 +2410,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelectButton L3
       objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_text
+      value: 'Level: 3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 3753333179241390653}
     - target: {fileID: 7140022608886459225, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2530,26 +2550,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 3753333178424481093}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_text
-      value: 'Level: 3'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_textInfo.textComponent
-      value: 
-      objectReference: {fileID: 3753333179241390653}
     - target: {fileID: 7007934658256352176, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2627,6 +2627,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelectButton L1
       objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
+        type: 3}
+      propertyPath: m_textInfo.textComponent
+      value: 
+      objectReference: {fileID: 1871140337700146643}
     - target: {fileID: 7140022608886459225, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2747,21 +2762,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1871140337111972523}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305963847563721295, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
-        type: 3}
-      propertyPath: m_textInfo.textComponent
-      value: 
-      objectReference: {fileID: 1871140337700146643}
     - target: {fileID: 7007934658256352176, guid: 9eaf401a840f64d448d73e7e9f26d8cf,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2834,11 +2834,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1723722038}
     m_Modifications:
-    - target: {fileID: 1765861864842081452, guid: fa094e10fadd70a47bfa0eceea1ce5a9,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelSelectionIndicator
-      objectReference: {fileID: 0}
     - target: {fileID: 7052590588766894972, guid: fa094e10fadd70a47bfa0eceea1ce5a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2958,6 +2953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765861864842081452, guid: fa094e10fadd70a47bfa0eceea1ce5a9,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelSelectionIndicator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa094e10fadd70a47bfa0eceea1ce5a9, type: 3}

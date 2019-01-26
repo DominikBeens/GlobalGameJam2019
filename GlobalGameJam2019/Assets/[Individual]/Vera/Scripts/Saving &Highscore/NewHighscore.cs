@@ -19,7 +19,6 @@ public class NewHighscore : MonoBehaviour
     [Header("TextComponents")]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeText;
-    [SerializeField] private TMP_InputField nameInput;
     private int pickupScore;
 
     [Header("Timer")]
@@ -107,13 +106,12 @@ public class NewHighscore : MonoBehaviour
         feather.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, rot);
     }
 
+    [KeyCommand(KeyCode.M, PressType.KeyPressType.Down)]
     public void Finished()
     {
-        if(nameInput.text != "")
-        {
             Highscore newHighscore = new Highscore();
             newHighscore.score = GetScore();
-            HighscoreManager.instance.AddScore(newHighscore, nameInput.text,level -1);
+            HighscoreManager.instance.AddScore(newHighscore, HighscoreManager.instance.currentName,level -1);
         }
     }
 }

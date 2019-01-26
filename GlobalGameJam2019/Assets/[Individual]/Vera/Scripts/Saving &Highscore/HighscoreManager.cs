@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class HighscoreManager : MonoBehaviour
 {
     public static HighscoreManager instance;
-    private string tempName;
+    public string currentName;
     [SerializeField] private List< AllHighscore> allHighscore = new List<AllHighscore>();
     [SerializeField] private List<AllNames> names = new List<AllNames>();
     [SerializeField] private int amountLevel;
@@ -27,12 +27,7 @@ public class HighscoreManager : MonoBehaviour
             if (Exists("SaveFiles", i))
             {
                 NamesByteSavefile saveFile = LoadNames(i);
-                print(saveFile);
-                byte[] test = saveFile.saveFile;
-                print(test.Length);
-                AllNames tes = (AllNames) ByteArrayToObject(test);
-                print(tes);
-                names.Add(tes);
+                names.Add((AllNames)ByteArrayToObject(saveFile.saveFile));
                 print(LoadNames(i));
                 if (i < allHighscore.Count)
                 {
