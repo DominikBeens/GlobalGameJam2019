@@ -30,6 +30,7 @@ public class BirdMovement : MonoBehaviour {
 
     Vector2Int newMovementAxis;
     bool axisMovement;
+    Vector2 newVelocity;
 
     void MovementUpdate() {
         timerRight -= Time.deltaTime;
@@ -66,13 +67,15 @@ public class BirdMovement : MonoBehaviour {
                 myRidgidbody.velocity = new Vector2(myRidgidbody.velocity.x, 0);
                 myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
 
+                newVelocity = transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed;
+
                 if (transform.up.y < 0) {
                     myRidgidbody.angularVelocity = 0;
-                    myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed / 2, ForceMode2D.Impulse);
+                    myRidgidbody.AddForce(new Vector2(newVelocity.x / 4, newVelocity.y),ForceMode2D.Impulse);
                 }
                 else {
                     myRidgidbody.angularVelocity = 0;
-                    myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+                    myRidgidbody.AddForce(new Vector2(newVelocity.x / 4, newVelocity.y), ForceMode2D.Impulse);
                 }
             }
         }

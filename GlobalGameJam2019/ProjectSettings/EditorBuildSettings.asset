@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: ee85b41b253d5aa459c012513fb540d0
   - enabled: 1
+    path: Assets/[Individual]/Dominik/Dominik.unity
+    guid: c6fd1122f338f3845b3c3243ee95eb0e
+  - enabled: 1
     path: Assets/Scenes/Levels/Level01.unity
     guid: d8af84747e7d32741a684e3a69768864
   - enabled: 1
