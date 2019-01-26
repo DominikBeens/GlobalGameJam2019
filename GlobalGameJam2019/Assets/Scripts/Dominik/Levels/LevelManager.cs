@@ -99,10 +99,34 @@ public class LevelManager : MonoBehaviour
         {
             if (levelData[i].level == currentLevel)
             {
-                levelData[i].pickupsCollected++;
+                levelData[i].AddPickup();
                 return;
             }
         }
+    }
+
+    public void ResetPickups()
+    {
+        for (int i = 0; i < levelData.Count; i++)
+        {
+            if (levelData[i].level == currentLevel)
+            {
+                levelData[i].ResetPickups();
+                return;
+            }
+        }
+    }
+
+    public void RestartLevel()
+    {
+        ResetPickups();
+        SceneManager.instance.LoadScene(currentLevel, false);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        ResetPickups();
+        SceneManager.instance.LoadScene(0, false);
     }
 
     private void OnDisable()

@@ -3,9 +3,11 @@
 public class Pickup : MonoBehaviour
 {
 
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private GameObject pickupParticle;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Bird")
+        if (collision.tag == "Bird")
         {
             Collect();
         }
@@ -14,6 +16,7 @@ public class Pickup : MonoBehaviour
     private void Collect()
     {
         LevelManager.instance.CollectPickup();
+        Instantiate(pickupParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
