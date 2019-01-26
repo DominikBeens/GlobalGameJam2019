@@ -189,12 +189,12 @@ PrefabInstance:
     - target: {fileID: 5172256202826692911, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
       propertyPath: wingSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
@@ -206,8 +206,22 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 3211894442850206895}
-    m_RemovedComponents:
-    - {fileID: 1343370692, guid: 65024fdd50b3a164e80a506e2ab2d3a1, type: 3}
+    - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
+        type: 3}
+      propertyPath: stabelizeAirSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
+        type: 3}
+      propertyPath: coolDown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470410652538801768, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65024fdd50b3a164e80a506e2ab2d3a1, type: 3}
 --- !u!4 &3211894441432774599 stripped
 Transform:
