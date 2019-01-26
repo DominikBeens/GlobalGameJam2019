@@ -103,9 +103,9 @@ public class HighscoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(Highscore score, string name,int level)
+    public bool AddScore(Highscore score, string name,int level)
     {
-        if (allHighscore != null)
+        if (allHighscore[level] != null)
         {
             bool exists = false;
             int index = -1;
@@ -121,19 +121,22 @@ public class HighscoreManager : MonoBehaviour
             {
                 if(allHighscore[level].scores[index].score > score.score)
                 {
-                    return;
+                    return false;
                 }
                 else
                 {
                     allHighscore[level].scores[index] = score;
+                    return true;
                 }
             }
             else
             {
                 allHighscore[level].scores.Add(score);
                 allHighscore[level].names.Add(name);
+                return true;
             }
         }
+        return false;
     }
     private bool Exists(string name, int level)
     {

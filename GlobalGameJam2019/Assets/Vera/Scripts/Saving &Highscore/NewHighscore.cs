@@ -18,16 +18,19 @@ public class NewHighscore : MonoBehaviour
 
     [Header("TextComponents")]
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text secondText;
-    [SerializeField] private TMP_Text minuteText;
+    [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_InputField nameInput;
     private int pickupScore;
+
+    [Header("Timer")]
+    [SerializeField] private Image circle;
+    [SerializeField] private GameObject feather;
 
     [SerializeField] private int level;
 
     private void Start()
     {
-        StartScore(300, 5000);
+        StartScore(70, 5000);
     }
 
     private void StartScore(float _timeForLevel, float _maxScore)
@@ -55,14 +58,28 @@ public class NewHighscore : MonoBehaviour
             time--;
         }
         SecondMinute();
+        LevelTimer();
+        scoreText.text = "Score: " + GetScore().ToString();
     }
 
     private void SecondMinute()
     {
         minutes =(int) Mathf.Floor(timeLeft / 60);
         seconds = (int)timeLeft % 60;
+        if(minutes == 0)
+        {
+            timeText.text = "Seconds: " + seconds.ToString();
+        }
+        else if (seconds == 0)
+        {
+            timeText.text = "Minutes: " + minutes.ToString();
+        }
+        else
+        {
+            timeText.text = "Minutes: " + minutes.ToString() + " Seconds: " + seconds.ToString();
+        }
+        
     }
-
 
     private int GetScore()
     {
@@ -70,7 +87,6 @@ public class NewHighscore : MonoBehaviour
         score += pickupScore;
         return score;
     }
-
 
     private void Pickup(int score)
     {
@@ -81,6 +97,14 @@ public class NewHighscore : MonoBehaviour
     private void Coin()
     {
         Pickup(50);
+    }
+
+    private void LevelTimer()
+    {
+        float timePercentage = timeLeft / timeForLevel;
+        circle.fillAmount = timePercentage;
+        float rot = 360 * timePercentage;
+        feather.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, rot);
     }
 
     public void Finished()
