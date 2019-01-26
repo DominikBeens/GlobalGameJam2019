@@ -5,7 +5,8 @@ using UnityEngine;
 public class BirdMovement : MonoBehaviour {
     Rigidbody2D myRidgidbody;
     BoxCollider2D myCheckbox;
-    Animator myAnimator;
+    [SerializeField] Animator leftWingAnimator;
+    [SerializeField] Animator rightWingAnimator;
     [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
@@ -13,12 +14,12 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] float stabelizeSpeed;
     [SerializeField] float stabelizeAirSpeed;
     [SerializeField] float coolDown;
-    float timer;
+    float timerRight;
+    float timerLeft;
 
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
         myCheckbox = GetComponent<BoxCollider2D>();
-        myAnimator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -28,30 +29,38 @@ public class BirdMovement : MonoBehaviour {
     }
 
     Vector2Int newMovementAxis;
+    bool axisMovement;
 
     void MovementUpdate() {
-        timer -= Time.deltaTime;
+        timerRight -= Time.deltaTime;
+        timerRight -= Time.deltaTime;
+        axisMovement = MovementAxis();
 
-        myAnimator.SetInteger("State", 0);
-        if (MovementAxis() && timer < 0) {
-            timer = coolDown;
-
+        if (axisMovement && timerRight < 0 || timerLeft < 0 && axisMovement) {
             if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+                timerLeft = coolDown;
+                timerRight = coolDown;
                 myRidgidbody.angularVelocity = 0;
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
-                myAnimator.SetInteger("State", 3);
+                rightWingAnimator.SetTrigger("Fly");
+                leftWingAnimator.SetTrigger("Fly");
             }
             else {
                 if (newMovementAxis.x == 1) {
                     if (newMovementAxis.y == 1) {
-                        myAnimator.SetInteger("State", 3);
+                        rightWingAnimator.SetTrigger("Fly");
+                        leftWingAnimator.SetTrigger("Fly");
+                        timerLeft = coolDown;
+                        timerRight = coolDown;
                     }
                     else {
-                        myAnimator.SetInteger("State", 2);
+                        leftWingAnimator.SetTrigger("Fly");
+                        timerRight = coolDown;
                     }
                 }
                 else {
-                    myAnimator.SetInteger("State", 1);
+                    rightWingAnimator.SetTrigger("Fly");
+                    timerLeft = coolDown;
                 }
 
                 myRidgidbody.velocity = new Vector2(myRidgidbody.velocity.x, 0);
