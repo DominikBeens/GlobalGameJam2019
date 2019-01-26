@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 3255695658218578658}
   - component: {fileID: 8572583563340754519}
   m_Layer: 0
-  m_Name: LevelCompleteCanvas
+  m_Name: LevelPopupCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1637,7 +1637,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 69c282e20ef8da04ab50459ad14a7212, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1678,7 +1678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -138.99998}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5985860674103051768
@@ -2010,7 +2010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 1723722034}
-  levelCompleteCanvas: {fileID: 4826825930259750277}
   levelData:
   - {fileID: 11400000, guid: 3f62c96f52c080a438eb7c6267c6adb6, type: 2}
   - {fileID: 11400000, guid: 83f9a2d1861c48a4ca571055bd3841ac, type: 2}
@@ -2019,6 +2018,9 @@ MonoBehaviour:
   selectedLevelText: {fileID: 1243546567}
   levelSelectButtonHolder: {fileID: 441184825}
   levelSelectionIndicator: {fileID: 5908126323065817849}
+  levelPopupCanvas: {fileID: 4826825930259750277}
+  levelPopupHeaderText: {fileID: 5552258734646639157}
+  levelPopupScoreText: {fileID: 248345501568199216}
 --- !u!1 &9052919769751689973
 GameObject:
   m_ObjectHideFlags: 0

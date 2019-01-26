@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour
     private static int currentLevel;
 
     [SerializeField] private GameObject menuCanvas;
-    [SerializeField] private GameObject levelCompleteCanvas;
 
     [Space]
 
@@ -20,6 +19,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI selectedLevelText;
     [SerializeField] private Transform levelSelectButtonHolder;
     [SerializeField] private GameObject levelSelectionIndicator;
+
+    [Header("Level Popup")]
+    [SerializeField] private GameObject levelPopupCanvas;
+    [SerializeField] private TextMeshProUGUI levelPopupHeaderText;
+    [SerializeField] private TextMeshProUGUI levelPopupScoreText;
 
     private void Awake()
     {
@@ -36,7 +40,7 @@ public class LevelManager : MonoBehaviour
 
         selectedLevelPanel.SetActive(false);
         levelSelectionIndicator.SetActive(false);
-        levelCompleteCanvas.SetActive(false);
+        levelPopupCanvas.SetActive(false);
         SceneManager.OnLevelLoaded += SceneManager_OnLevelLoaded;
         SceneManager_OnLevelLoaded();
     }
@@ -88,6 +92,7 @@ public class LevelManager : MonoBehaviour
 
     private void SceneManager_OnLevelLoaded()
     {
+        Time.timeScale = 1;
         selectedLevelPanel.SetActive(false);
         levelSelectionIndicator.SetActive(false);
         menuCanvas.SetActive(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ? true : false);
@@ -127,6 +132,22 @@ public class LevelManager : MonoBehaviour
     {
         ResetPickups();
         SceneManager.instance.LoadScene(0, false);
+    }
+
+    public void ShowLevelCompletePopup(int score, bool newHighscore)
+    {
+        Time.timeScale = 0;
+        levelPopupHeaderText.text = "Level Complete!";
+        levelPopupScoreText.text = newHighscore ? $"Score: {score} \nNew highscore!" : $"Score: {score}";
+        levelPopupCanvas.SetActive(true);
+    }
+
+    public void ShowTimeUpPopup()
+    {
+        Time.timeScale = 0;
+        levelPopupHeaderText.text = "Time is up!";
+        levelPopupScoreText.text = "";
+        levelPopupCanvas.SetActive(true);
     }
 
     private void OnDisable()

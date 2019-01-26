@@ -7,6 +7,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instantiate(birdPrefab, Vector3.zero, Quaternion.identity);
+        Instantiate(birdPrefab, transform.position, Quaternion.identity);
     }
 }
