@@ -174,6 +174,9 @@ namespace DB.MenuPack
             // Deactivate the loading bar.
             loadingBar.SetActive(false);
 
+            // Fires an OnLevelLoaded event so that all subscribed scripts can start doing their thing.
+            OnLevelLoaded();
+
             // Set the transition speed and display another transition animation.
             transitionAnim.speed = tSpeedOut;
             transitionAnim.Play("Transition Out");
@@ -190,8 +193,6 @@ namespace DB.MenuPack
             Time.timeScale = stopTimeWhenLoading ? 1 : Time.timeScale;
             // Level has finished loading, another level can start loading if necessary.
             isLoadingLevel = false;
-            // Fires an OnLevelLoaded event so that all subscribed scripts can start doing their thing.
-            OnLevelLoaded();
         }
 
         private void SetupCanvases()

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LevelData02
   m_EditorClassIdentifier: 
   level: 2
-  locked: 1
+  locked: 0

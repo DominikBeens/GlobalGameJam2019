@@ -2,40 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdMovement : MonoBehaviour
-{
+public class BirdMovement : MonoBehaviour {
     Rigidbody2D myRidgidbody;
+    BoxCollider2D myCheckbox;
+    [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
-    [SerializeField] Transform myamera;
+    [SerializeField] Transform myCamera;
+    [SerializeField] float stabelizeSpeed;
+    [SerializeField] float stabelizeAirSpeed;
+    [SerializeField] float coolDown;
 
-    void Awake(){
+    void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
+        myCheckbox = GetComponent<BoxCollider2D>();
+    }
+
+    void Update() {
+        myCamera.position = new Vector3(transform.position.x, transform.position.y, -10);
+
+        MovementUpdate();
     }
 
     Vector2Int newMovementAxis;
 
-    void Update()
-    {
-        myamera.position = new Vector3(transform.position.x,transform.position.y,-10);
-        newMovementAxis = MovementAxis();
+    void MovementUpdate() {
+        if (MovementAxis()) {
+            if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+                myRidgidbody.AddForce(Vector2.up * wingSpeed * 2, ForceMode2D.Impulse);
+                transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime * 5));
+            }
+            else {
+                myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
+                myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+            }
+        }
+        else if (myRidgidbody.velocity.x < 0.1 && myRidgidbody.velocity.x > -0.1 && myRidgidbody.velocity.y < 0.1 && myRidgidbody.velocity.y > -0.1) {
+            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeSpeed * Time.deltaTime));
+        }
 
-        myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
-        myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed,ForceMode2D.Impulse);
+        if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+            transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime));
+        }
     }
 
-    Vector2Int MovementAxis(){
-        if(Input.GetButtonDown("Right Wing")){
-            if(Input.GetButtonDown("Left Wing")){
-                return(new Vector2Int(1,1));
+    bool MovementAxis() {
+        if (Input.GetButtonDown("Right Wing")) {
+            if (Input.GetButtonDown("Left Wing")) {
+                newMovementAxis = new Vector2Int(1, 1);
             }
 
-            return (new Vector2Int(0,1));
+            newMovementAxis = new Vector2Int(0, 1);
+            return true;
+
         }
-        else if(Input.GetButtonDown("Left Wing")){
-            return (new Vector2Int(1,0));
+        else if (Input.GetButtonDown("Left Wing")) {
+            newMovementAxis = new Vector2Int(1, 0);
+            return true;
         }
 
-        return (new Vector2Int(0,0));
+        newMovementAxis = new Vector2Int(0, 0);
+        return false;
+
     }
 }
