@@ -158,9 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279c9613416c5b47927ab80386c6c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdAnimator: {fileID: 1433169317680078455}
-  leftWingAnimator: {fileID: 4634994033430206733}
-  rightWingAnimator: {fileID: 790601327989537609}
   chickenGround:
     serializedVersion: 2
     m_Bits: 311
@@ -170,6 +167,9 @@ MonoBehaviour:
   stabelizeSpeed: 3
   stabelizeAirSpeed: 1.5
   coolDown: 0.4
+  zoomSpeed: 20
+  minZoom: -5
+  maxZoom: -10
 --- !u!1 &1772615465471597763
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,9 +784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279c9613416c5b47927ab80386c6c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdAnimator: {fileID: 0}
-  leftWingAnimator: {fileID: 4634994033430206733}
-  rightWingAnimator: {fileID: 790601327989537609}
   chickenGround:
     serializedVersion: 2
     m_Bits: 311
@@ -796,6 +793,9 @@ MonoBehaviour:
   stabelizeSpeed: 3
   stabelizeAirSpeed: 1.5
   coolDown: 0.4
+  zoomSpeed: 0
+  minZoom: 0
+  maxZoom: 0
 --- !u!1 &7418819727875013504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,12 +1067,6 @@ GameObject:
 --- !u!4 &1433169317680078454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6913971598449195547, guid: 0f4ea1af03fc3984f93fc5cc596bddd4,
-    type: 3}
-  m_PrefabInstance: {fileID: 5481161602138596461}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1433169317680078455 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6913971598449195546, guid: 0f4ea1af03fc3984f93fc5cc596bddd4,
     type: 3}
   m_PrefabInstance: {fileID: 5481161602138596461}
   m_PrefabAsset: {fileID: 0}

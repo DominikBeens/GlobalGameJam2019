@@ -5,9 +5,7 @@ using UnityEngine;
 public class BirdMovement : MonoBehaviour {
     Rigidbody2D myRidgidbody;
     BoxCollider2D myCheckbox;
-    [SerializeField] Animator birdAnimator;
-    //[SerializeField] Animator leftWingAnimator;
-    //[SerializeField] Animator rightWingAnimator;
+    Animator birdAnimator;
     [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
@@ -15,6 +13,8 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] float stabelizeSpeed;
     [SerializeField] float stabelizeAirSpeed;
     [SerializeField] float coolDown;
+    [SerializeField] int zoomSpeed;
+    [SerializeField] int minZoom, maxZoom;
     float timerRight;
     float timerLeft;
     bool frozen;
@@ -22,13 +22,15 @@ public class BirdMovement : MonoBehaviour {
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
         myCheckbox = GetComponent<BoxCollider2D>();
+        birdAnimator = GetComponent<Animator>();
     }
 
     void Update() {
         if (!frozen) {
-            myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
+            myCamera.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(myCamera.localPosition.z - Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed, minZoom, maxZoom));
             MovementUpdate();
         }
+
     }
 
     Vector2Int newMovementAxis;
@@ -48,28 +50,22 @@ public class BirdMovement : MonoBehaviour {
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
                 birdAnimator.SetTrigger("FlapR");
                 birdAnimator.SetTrigger("FlapL");
-                //rightWingAnimator.SetTrigger("Fly");
-                //leftWingAnimator.SetTrigger("Fly");
             }
             else {
                 if (newMovementAxis.x == 1) {
                     if (newMovementAxis.y == 1) {
                         birdAnimator.SetTrigger("FlapR");
                         birdAnimator.SetTrigger("FlapL");
-                        //rightWingAnimator.SetTrigger("Fly");
-                        //leftWingAnimator.SetTrigger("Fly");
                         timerLeft = coolDown;
                         timerRight = coolDown;
                     }
                     else {
                         birdAnimator.SetTrigger("FlapR");
-                        //leftWingAnimator.SetTrigger("Fly");
                         timerRight = coolDown;
                     }
                 }
                 else {
                     birdAnimator.SetTrigger("FlapL");
-                    //rightWingAnimator.SetTrigger("Fly");
                     timerLeft = coolDown;
                 }
 
@@ -79,11 +75,11 @@ public class BirdMovement : MonoBehaviour {
                 newVelocity = transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed;
 
                 if (transform.up.y < 0) {
-                    myRidgidbody.angularVelocity = 0;
-                    myRidgidbody.AddForce(new Vector2(newVelocity.x / 4, newVelocity.y),ForceMode2D.Impulse);
+                    //myRidgidbody.angularVelocity = 0;
+                    myRidgidbody.AddForce(new Vector2(newVelocity.x / 4, newVelocity.y), ForceMode2D.Impulse);
                 }
                 else {
-                    myRidgidbody.angularVelocity = 0;
+                    //myRidgidbody.angularVelocity = 0;
                     myRidgidbody.AddForce(new Vector2(newVelocity.x / 4, newVelocity.y), ForceMode2D.Impulse);
                 }
             }

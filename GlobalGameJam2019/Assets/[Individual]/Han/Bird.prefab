@@ -189,29 +189,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7061474621754404254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2606621498988761234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f279c9613416c5b47927ab80386c6c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftWingAnimator: {fileID: 8619319125329172454}
-  rightWingAnimator: {fileID: 4411258448941217186}
-  chickenGround:
-    serializedVersion: 2
-    m_Bits: 311
-  wingSpeed: 6
-  rotationAmount: 150
-  myCamera: {fileID: 0}
-  stabelizeSpeed: 3
-  stabelizeAirSpeed: 1.5
-  coolDown: 0.4
 --- !u!58 &354301609921007962
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -228,6 +205,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21}
   serializedVersion: 2
   m_Radius: 3.2
+--- !u!114 &7061474621754404254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606621498988761234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f279c9613416c5b47927ab80386c6c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdAnimator: {fileID: 0}
+  chickenGround:
+    serializedVersion: 2
+    m_Bits: 311
+  wingSpeed: 6
+  rotationAmount: 150
+  myCamera: {fileID: 0}
+  stabelizeSpeed: 3
+  stabelizeAirSpeed: 1.5
+  coolDown: 0.4
 --- !u!1 &3411107042022920744
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,8 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f279c9613416c5b47927ab80386c6c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftWingAnimator: {fileID: 8619319125329172454}
-  rightWingAnimator: {fileID: 4411258448941217186}
+  birdAnimator: {fileID: 0}
   chickenGround:
     serializedVersion: 2
     m_Bits: 311
