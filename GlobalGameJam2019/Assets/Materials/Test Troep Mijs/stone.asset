@@ -46,7 +46,7 @@ MonoBehaviour:
     - {fileID: 21300006, guid: 51cf4531ee3d94b4ea67ad96ccb4cd58, type: 3}
   - m_CornerType: 3
     m_Sprites:
-    - {fileID: 21300012, guid: 51cf4531ee3d94b4ea67ad96ccb4cd58, type: 3}
+    - {fileID: 21300006, guid: 51cf4531ee3d94b4ea67ad96ccb4cd58, type: 3}
   - m_CornerType: 4
     m_Sprites:
     - {fileID: 21300010, guid: 51cf4531ee3d94b4ea67ad96ccb4cd58, type: 3}
