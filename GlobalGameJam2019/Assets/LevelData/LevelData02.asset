@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: LevelData02
   m_EditorClassIdentifier: 
   level: 2
-  locked: 0
+  locked: 1
+  pickupsCollected: 0

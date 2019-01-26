@@ -10,9 +10,9 @@ public class HighscoreManager : MonoBehaviour
 {
     public static HighscoreManager instance;
     public string currentName;
-    [SerializeField] private List <AllHighscore> allHighscore = new List<AllHighscore>();
-    [SerializeField] private List <AllNames> names = new List<AllNames>();
-    [SerializeField] private int amountLevel;
+    public List <AllHighscore> allHighscore = new List<AllHighscore>();
+    public List <AllNames> names = new List<AllNames>();
+    public int amountLevel;
 
     private void Awake()
     {

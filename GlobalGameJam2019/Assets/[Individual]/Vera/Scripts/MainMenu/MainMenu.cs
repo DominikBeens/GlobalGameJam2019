@@ -6,12 +6,14 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     
-    [SerializeField] private enum CurrentMenu { main,levelSelect}
+    [SerializeField] private enum CurrentMenu { main,levelSelect, leaderboard}
     [Header("Current menu")]
     [SerializeField] private CurrentMenu currentMenu;
 
     [Header("Menu's")]
     [SerializeField] private Canvas mainMenu;
+    [SerializeField] private GameObject main;
+    [SerializeField] private GameObject leaderBoard;
 
     [Header("Tect Components")]
     [SerializeField] private TMP_InputField nameInput;
@@ -49,16 +51,35 @@ public class MainMenu : MonoBehaviour
         currentMenu = menu;
     }
 
+    public void GoLeader()
+    {
+        SetMenu(CurrentMenu.leaderboard);
+        leaderBoard.GetComponent<LeaderBoard>().SetLeaderBoards();
+    }
+
+    public void GoHome()
+    {
+        SetMenu(CurrentMenu.main);
+    }
+
     private void Update()
     {
         switch (currentMenu)
         {
             case CurrentMenu.main:
                 mainMenu.enabled = true;
+                main.SetActive(true);
+                leaderBoard.SetActive(false);
                 break;
             case CurrentMenu.levelSelect:
                 mainMenu.enabled = false;
                 break;
+            case CurrentMenu.leaderboard:
+                mainMenu.enabled = true;
+                main.SetActive(false);
+                leaderBoard.SetActive(true);
+                break;
+
         }
     }
 }
