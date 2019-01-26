@@ -8,9 +8,10 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager instance;
 
-    private int selectedLevel;
+    private static int currentLevel;
 
-    [SerializeField] private Canvas menuCanvas;
+    [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject levelCompleteCanvas;
 
     [Space]
 
@@ -35,6 +36,7 @@ public class LevelManager : MonoBehaviour
 
         selectedLevelPanel.SetActive(false);
         levelSelectionIndicator.SetActive(false);
+        levelCompleteCanvas.SetActive(false);
         SceneManager.OnLevelLoaded += SceneManager_OnLevelLoaded;
         SceneManager_OnLevelLoaded();
     }
@@ -60,16 +62,17 @@ public class LevelManager : MonoBehaviour
             if (levelData[i].level == level)
             {
                 levelData[i].locked = lockState;
+                return;
             }
         }
     }
 
     public void SelectLevelToPlay(int level)
     {
-        selectedLevel = level;
+        currentLevel = level;
 
         selectedLevelPanel.SetActive(false);
-        selectedLevelText.text = $"Selected level: {selectedLevel}";
+        selectedLevelText.text = $"Selected level: {currentLevel}";
         selectedLevelPanel.SetActive(true);
 
         levelSelectionIndicator.SetActive(false);
@@ -80,14 +83,26 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel()
     {
         selectedLevelPanel.SetActive(false);
-        SceneManager.instance.LoadScene(selectedLevel, false);
+        SceneManager.instance.LoadScene(currentLevel, false);
     }
 
     private void SceneManager_OnLevelLoaded()
     {
         selectedLevelPanel.SetActive(false);
         levelSelectionIndicator.SetActive(false);
-        menuCanvas.enabled = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ? true : false;
+        menuCanvas.SetActive(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0 ? true : false);
+    }
+
+    public void CollectPickup()
+    {
+        for (int i = 0; i < levelData.Count; i++)
+        {
+            if (levelData[i].level == currentLevel)
+            {
+                levelData[i].pickupsCollected++;
+                return;
+            }
+        }
     }
 
     private void OnDisable()
