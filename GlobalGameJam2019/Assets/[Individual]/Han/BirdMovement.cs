@@ -20,7 +20,7 @@ public class BirdMovement : MonoBehaviour {
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
         myCheckbox = GetComponent<BoxCollider2D>();
-    } 
+    }
 
     void Update() {
         myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
