@@ -16,6 +16,7 @@ public class Pickup : MonoBehaviour
     private void Collect()
     {
         LevelManager.instance?.CollectPickup();
+        NotificationManager.instance?.NewNotification("Pickup Collected!");
         Instantiate(pickupParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

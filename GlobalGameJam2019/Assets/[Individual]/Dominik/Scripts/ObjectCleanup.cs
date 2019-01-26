@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ParticleCleanup : MonoBehaviour
+public class ObjectCleanup : MonoBehaviour
 {
 
     [SerializeField] private float cleanupAfterSeconds;
