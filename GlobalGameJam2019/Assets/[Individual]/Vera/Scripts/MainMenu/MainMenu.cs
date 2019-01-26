@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
             {
                 HighscoreManager.instance.currentName = nameInput.text;
                 HighscoreManager.instance?.SaveLastName(nameInput.text);
+                
             }
         }
     }

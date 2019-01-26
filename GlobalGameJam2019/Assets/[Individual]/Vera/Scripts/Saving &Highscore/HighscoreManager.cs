@@ -146,12 +146,12 @@ public class HighscoreManager : MonoBehaviour
         return false;
     }
 
-    public int LastLevel(string name)
+    public int LastLevel()
     {
         int lvl = 0;
         for (int i = 0; i < allHighscore.Count; i++)
         {
-            lvl = allHighscore[i].names.IndexOf(name);
+            lvl = allHighscore[i].names.IndexOf(currentName);
         }
         return lvl;
     }
