@@ -23,6 +23,7 @@ public class HighscoreManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
+            return;
         }
         DontDestroyOnLoad(gameObject);
         for (int i = 0; i < amountLevel; i++)
