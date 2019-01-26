@@ -186,17 +186,28 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5172256202826692911, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
-      propertyPath: myCamera
-      value: 
-      objectReference: {fileID: 3211894442850206895}
+      propertyPath: wingSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
         type: 3}
       propertyPath: rotationAmount
       value: 150
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5172256202826692944, guid: 65024fdd50b3a164e80a506e2ab2d3a1,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 3211894442850206895}
+    m_RemovedComponents:
+    - {fileID: 1343370692, guid: 65024fdd50b3a164e80a506e2ab2d3a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 65024fdd50b3a164e80a506e2ab2d3a1, type: 3}
 --- !u!4 &3211894441432774599 stripped
 Transform:
