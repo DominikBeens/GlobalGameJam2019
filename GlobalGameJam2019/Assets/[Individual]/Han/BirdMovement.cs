@@ -23,7 +23,7 @@ public class BirdMovement : MonoBehaviour {
     }
 
     void Update() {
-        myCamera.position = new Vector3(transform.position.x, transform.position.y, -10);
+        myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
 
         MovementUpdate();
     }
