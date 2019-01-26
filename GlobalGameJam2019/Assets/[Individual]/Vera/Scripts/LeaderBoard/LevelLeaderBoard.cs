@@ -13,7 +13,10 @@ public class LevelLeaderBoard : MonoBehaviour
         {
             List<int> tempScore = new List<int>();
             List<string> tempNames = new List<string>();
-            tempNames = names;
+            for (int i = 0; i < names.Count; i++)
+            {
+                tempNames.Add(names[i]);
+            }
             for (int i = 0; i < _score.Count; i++)
             {
                 tempScore.Add(_score[i].score);
