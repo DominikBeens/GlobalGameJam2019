@@ -11,6 +11,7 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] Transform myCamera;
     [SerializeField] float stabelizeSpeed;
     [SerializeField] float stabelizeAirSpeed;
+    [SerializeField] float coolDown;
 
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
@@ -27,8 +28,14 @@ public class BirdMovement : MonoBehaviour {
 
     void MovementUpdate() {
         if (MovementAxis()) {
-            myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
-            myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+            if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.4f, chickenGround)) {
+                myRidgidbody.AddForce(Vector2.up * wingSpeed * 2, ForceMode2D.Impulse);
+                transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeAirSpeed * Time.deltaTime * 5));
+            }
+            else {
+                myRidgidbody.AddTorque((newMovementAxis.x - newMovementAxis.y) * rotationAmount * Time.deltaTime);
+                myRidgidbody.AddForce(transform.up * (newMovementAxis.x + newMovementAxis.y) * wingSpeed, ForceMode2D.Impulse);
+            }
         }
         else if (myRidgidbody.velocity.x < 0.1 && myRidgidbody.velocity.x > -0.1 && myRidgidbody.velocity.y < 0.1 && myRidgidbody.velocity.y > -0.1) {
             transform.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(transform.localEulerAngles.z, 0, stabelizeSpeed * Time.deltaTime));
