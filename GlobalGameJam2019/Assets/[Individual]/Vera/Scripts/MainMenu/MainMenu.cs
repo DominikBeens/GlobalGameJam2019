@@ -16,14 +16,22 @@ public class MainMenu : MonoBehaviour
     [Header("Tect Components")]
     [SerializeField] private TMP_InputField nameInput;
 
+
+    private void Start()
+    {
+        nameInput.text = HighscoreManager.instance?.LoadLastName();
+    }
+
     public void MainPlayButton()
     {
         if(nameInput.text != "")
         {
+            
             SetMenu(CurrentMenu.levelSelect);
             if(HighscoreManager.instance != null)
             {
                 HighscoreManager.instance.currentName = nameInput.text;
+                HighscoreManager.instance?.SaveLastName(nameInput.text);
             }
         }
     }

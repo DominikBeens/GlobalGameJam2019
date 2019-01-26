@@ -20,6 +20,11 @@ public class HighscoreManager : MonoBehaviour
         {
             instance = this;
         }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
         for (int i = 0; i < amountLevel; i++)
         {
 
@@ -28,7 +33,6 @@ public class HighscoreManager : MonoBehaviour
             {
                 NamesByteSavefile saveFile = LoadNames(i);
                 names.Add((AllNames)ByteArrayToObject(saveFile.saveFile));
-                print(LoadNames(i));
                 if (i < allHighscore.Count)
                 {
                     if (allHighscore[i] == null)
@@ -111,6 +115,14 @@ public class HighscoreManager : MonoBehaviour
                     exists = true;
                     index = i;
                 }
+                if(i < allHighscore[level].levelPlayed.Count)
+                {
+                    allHighscore[level].levelPlayed[i] = level;
+                }
+                else
+                {
+                    allHighscore[level].levelPlayed.Add(level);
+                }
             }
             if (exists)
             {
@@ -132,6 +144,16 @@ public class HighscoreManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public int LastLevel(string name)
+    {
+        int lvl = 0;
+        for (int i = 0; i < allHighscore.Count; i++)
+        {
+            lvl = allHighscore[i].names.IndexOf(name);
+        }
+        return lvl;
     }
     private bool Exists(string name, int level)
     {
@@ -172,6 +194,32 @@ public class HighscoreManager : MonoBehaviour
         {
             serializer.Serialize(stream, tS);
         }
+    }
+
+    public void SaveLastName(string newName)
+    {
+        LastName name = new LastName();
+        name.name = newName;
+        var serializer = new XmlSerializer(typeof(LastName));
+        using (var stream = new FileStream(Application.persistentDataPath + "/LN.xml", FileMode.Create))
+        {
+            serializer.Serialize(stream, name);
+        }
+    }
+
+    public string LoadLastName()
+    {
+        if(File.Exists(Application.persistentDataPath + "/LN.xml"))
+        {
+            var serializer = new XmlSerializer(typeof(LastName));
+            using (var stream = new FileStream(Application.persistentDataPath + "/LN.xml", FileMode.Open))
+            {
+                LastName save = serializer.Deserialize(stream) as LastName;
+                    return save.name;
+            }
+        }
+        return "";
+        
     }
 
     private NamesByteSavefile LoadNames(int level)

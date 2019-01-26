@@ -29,13 +29,11 @@ public class NewHighscore : MonoBehaviour
 
     private void Start()
     {
-        StartScore(70, 5000);
+        StartScore();
     }
 
-    private void StartScore(float _timeForLevel, float _maxScore)
+    private void StartScore()
     {
-        timeForLevel = _timeForLevel;
-        maxScore = _maxScore;
         decrement = maxScore / timeForLevel;
         timeLeft = timeForLevel;
     }
