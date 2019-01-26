@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using DB.MenuPack;
+﻿using DB.MenuPack;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     private static int currentLevel;
 
-    private LevelSelectButton[] levelSelectButtons;
+    private List<LevelSelectButton> levelSelectButtons = new List<LevelSelectButton>();
 
     [SerializeField] private GameObject menuCanvas;
 
@@ -42,7 +42,10 @@ public class LevelManager : MonoBehaviour
         }
 
         selectedLevelPanel.SetActive(false);
-        levelSelectButtons = FindObjectsOfType<LevelSelectButton>();
+        foreach (Transform child in levelSelectButtonHolder)
+        {
+            levelSelectButtons.Add(child.GetComponent<LevelSelectButton>());
+        }
         levelSelectionIndicator.SetActive(false);
 
         HidePopupPanel();
@@ -114,10 +117,15 @@ public class LevelManager : MonoBehaviour
         }
 
         int highestLevel = HighscoreManager.instance.LastLevel();
+        if (highestLevel < 0)
+        {
+            return;
+        }
+
         for (int i = 0; i < levelData.Count; i++)
         {
             levelData[i].locked = levelData[i].level <= highestLevel ? false : true;
-            levelSelectButtons[i].UpdateLock();
+            levelSelectButtons[i].UpdateLock(levelData[i]);
         }
     }
 

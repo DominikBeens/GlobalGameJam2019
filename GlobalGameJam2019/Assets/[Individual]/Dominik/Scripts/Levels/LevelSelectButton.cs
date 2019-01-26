@@ -7,7 +7,6 @@ public class LevelSelectButton : MonoBehaviour
 
     private int sceneToLoad;
     private Button button;
-    private LevelData levelData;
 
     [SerializeField] private TextMeshProUGUI buttonText;
     [SerializeField] private GameObject lockedOverlay;
@@ -23,10 +22,9 @@ public class LevelSelectButton : MonoBehaviour
         button.onClick.AddListener(() => LevelManager.instance.SelectLevelToPlay(sceneToLoad));
     }
 
-    public void UpdateLock()
+    public void UpdateLock(LevelData data)
     {
-        levelData = LevelManager.instance.GetLevelData(sceneToLoad);
-        ToggleLock(levelData.locked);
+        ToggleLock(data.locked);
     }
 
     private void OnValidate()
