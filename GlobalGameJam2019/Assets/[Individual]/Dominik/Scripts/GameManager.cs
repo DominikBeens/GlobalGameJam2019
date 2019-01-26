@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    private GameObject bird;
+
     [SerializeField] private GameObject birdPrefab;
 
     private void Awake()
@@ -18,11 +20,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SpawnBird();
+        SpawnNewBird();
     }
 
-    public void SpawnBird()
+    public void SpawnNewBird()
     {
-        Instantiate(birdPrefab, transform.position, Quaternion.identity);
+        Destroy(bird);
+        bird = Instantiate(birdPrefab, transform.position, Quaternion.identity);
     }
 }

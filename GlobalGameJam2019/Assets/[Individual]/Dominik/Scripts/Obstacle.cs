@@ -7,8 +7,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            Destroy(collision.gameObject);
-            GameManager.instance.SpawnBird();
+            GameManager.instance.SpawnNewBird();
         }
     }
 }
