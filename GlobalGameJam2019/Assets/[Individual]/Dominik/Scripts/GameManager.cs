@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,17 +22,26 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SpawnNewBird();
+        bird = Instantiate(birdPrefab, transform.position, Quaternion.identity);
     }
 
     public void SpawnNewBird()
     {
+        StartCoroutine(NewBird());
+    }
+
+    private IEnumerator NewBird()
+    {
         if (bird)
         {
+            bird.GetComponentInChildren<BirdMovement>().Freeze();
+
+            yield return new WaitForSeconds(2);
+
             Destroy(bird);
+
+            bird = Instantiate(birdPrefab, transform.position, Quaternion.identity);
             newHighscore.StartScore();
         }
-
-        bird = Instantiate(birdPrefab, transform.position, Quaternion.identity);
     }
 }

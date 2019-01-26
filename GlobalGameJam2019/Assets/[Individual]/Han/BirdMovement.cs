@@ -17,6 +17,7 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] float coolDown;
     float timerRight;
     float timerLeft;
+    bool frozen;
 
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
@@ -24,9 +25,10 @@ public class BirdMovement : MonoBehaviour {
     }
 
     void Update() {
-        myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
-
-        MovementUpdate();
+        if (!frozen) {
+            myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
+            MovementUpdate();
+        }
     }
 
     Vector2Int newMovementAxis;
@@ -112,5 +114,9 @@ public class BirdMovement : MonoBehaviour {
         newMovementAxis = new Vector2Int(0, 0);
         return false;
 
+    }
+
+    public void Freeze() {
+        frozen = true;
     }
 }
