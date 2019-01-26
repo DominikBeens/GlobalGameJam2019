@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
         nameInput.text = HighscoreManager.instance?.LoadLastName();
     }
 
+    public void ResetSaves()
+    {
+        HighscoreManager.instance.ResetSaves();
+    }
+
     public void MainPlayButton()
     {
         if(nameInput.text != "")

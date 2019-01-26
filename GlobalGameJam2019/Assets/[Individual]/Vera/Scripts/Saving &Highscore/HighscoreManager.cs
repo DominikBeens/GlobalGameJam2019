@@ -274,6 +274,15 @@ public class HighscoreManager : MonoBehaviour
         
     }
 
+    public void ResetSaves()
+    {
+        for (int i = 0; i < amountLevel; i++)
+        {
+                Directory.Delete(Application.persistentDataPath + "/Level" + (i + 1).ToString(), true);
+        }
+        Awake();
+    }
+
     private byte[] ObjectToByteArray(object obj)
     {
         if (obj == null)
