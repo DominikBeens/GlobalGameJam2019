@@ -57,15 +57,12 @@ public class BirdMovement : MonoBehaviour {
             }
             else {
                 if (newMovementAxis.x == 1) {
+                    birdAnimator.SetTrigger("FlapR");
+                    timerRight = coolDown;
+
                     if (newMovementAxis.y == 1) {
-                        birdAnimator.SetTrigger("FlapR");
                         birdAnimator.SetTrigger("FlapL");
                         timerLeft = coolDown;
-                        timerRight = coolDown;
-                    }
-                    else {
-                        birdAnimator.SetTrigger("FlapR");
-                        timerRight = coolDown;
                     }
                 }
                 else {
@@ -100,6 +97,7 @@ public class BirdMovement : MonoBehaviour {
         if (Input.GetButtonDown("Right Wing")) {
             if (Input.GetButtonDown("Left Wing")) {
                 newMovementAxis = new Vector2Int(1, 1);
+                return true;
             }
 
             newMovementAxis = new Vector2Int(0, 1);
