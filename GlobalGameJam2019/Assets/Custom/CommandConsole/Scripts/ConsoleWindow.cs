@@ -81,6 +81,8 @@ namespace DB.CommandConsole
 
             FindAllCommands();
             commandHistory.Insert(0, "");
+
+            DontDestroyOnLoad(gameObject);
         }
 
         private void Update()

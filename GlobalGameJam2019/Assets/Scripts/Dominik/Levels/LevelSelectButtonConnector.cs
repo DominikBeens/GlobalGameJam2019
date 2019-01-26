@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using DB.MenuPack;
 
 public class LevelSelectButtonConnector : MonoBehaviour
 {
@@ -10,13 +11,9 @@ public class LevelSelectButtonConnector : MonoBehaviour
     private void Start()
     {
         CreateConnection();
+        SceneManager.OnLevelLoaded += SceneManager_OnLevelLoaded;
     }
 
-    private void OnValidate()
-    {
-        CreateConnection();
-    }
-    
     [ContextMenu("CreateConnection")]
     private void CreateConnection()
     {
@@ -36,5 +33,24 @@ public class LevelSelectButtonConnector : MonoBehaviour
 
         line.positionCount = buttonWorldPos.Count;
         line.SetPositions(buttonWorldPos.ToArray());
+    }
+
+    private void ResetLine()
+    {
+        line.positionCount = 0;
+    }
+
+    private void SceneManager_OnLevelLoaded()
+    {
+        ResetLine();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            CreateConnection();
+        }
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.OnLevelLoaded -= SceneManager_OnLevelLoaded;
     }
 }
