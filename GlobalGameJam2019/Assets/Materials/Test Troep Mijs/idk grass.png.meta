@@ -97,13 +97,13 @@ TextureImporter:
       name: idk grass_0
       rect:
         serializedVersion: 2
-        x: 592
-        y: 680
+        x: 626
+        y: 625
         width: 200
         height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 1, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -117,8 +117,8 @@ TextureImporter:
       name: idk grass_1
       rect:
         serializedVersion: 2
-        x: 593
-        y: 466
+        x: 626
+        y: 410
         width: 198
         height: 200
       alignment: 0
@@ -134,31 +134,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idk grass_2
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 681
-        width: 199
-        height: 198
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 1, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d2960fe28e484140885bfd85613c3bd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: idk grass_3
       rect:
         serializedVersion: 2
-        x: 171
-        y: 677
+        x: 198
+        y: 625
         width: 200
         height: 200
       alignment: 0
@@ -177,12 +157,12 @@ TextureImporter:
       name: idk grass_4
       rect:
         serializedVersion: 2
-        x: 379
-        y: 679
+        x: 410
+        y: 628
         width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5235077, y: 0.47625425}
       border: {x: 1, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,8 +177,8 @@ TextureImporter:
       name: idk grass_5
       rect:
         serializedVersion: 2
-        x: 165
-        y: 252
+        x: 198
+        y: 198
         width: 200
         height: 200
       alignment: 0
@@ -217,10 +197,10 @@ TextureImporter:
       name: idk grass_6
       rect:
         serializedVersion: 2
-        x: 379
-        y: 252
+        x: 410
+        y: 200
         width: 200
-        height: 200
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,8 +217,8 @@ TextureImporter:
       name: idk grass_7
       rect:
         serializedVersion: 2
-        x: 592
-        y: 252
+        x: 624
+        y: 198
         width: 200
         height: 200
       alignment: 0
@@ -257,8 +237,8 @@ TextureImporter:
       name: idk grass_8
       rect:
         serializedVersion: 2
-        x: 167
-        y: 467
+        x: 196
+        y: 414
         width: 198
         height: 199
       alignment: 0
@@ -277,8 +257,8 @@ TextureImporter:
       name: idk grass_9
       rect:
         serializedVersion: 2
-        x: 380
-        y: 467
+        x: 411
+        y: 411
         width: 199
         height: 199
       alignment: 0
