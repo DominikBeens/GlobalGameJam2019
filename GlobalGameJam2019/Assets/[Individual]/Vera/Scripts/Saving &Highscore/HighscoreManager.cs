@@ -280,6 +280,7 @@ public class HighscoreManager : MonoBehaviour
         {
                 Directory.Delete(Application.persistentDataPath + "/Level" + (i + 1).ToString(), true);
         }
+        allHighscore.Clear();
         Awake();
     }
 
