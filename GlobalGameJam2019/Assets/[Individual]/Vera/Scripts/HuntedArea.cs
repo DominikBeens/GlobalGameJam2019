@@ -11,9 +11,9 @@ public class HuntedArea : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
-            if (GetComponentInChildren<MarkOfDeath>() != null)
+            if (collision.transform.root.GetComponentInChildren<MarkOfDeath>() != null)
             {
-                GetComponentInChildren<MarkOfDeath>().AddMark();
+                collision.transform.root.GetComponentInChildren<MarkOfDeath>().AddMark();
             }
 
             if(turtorial != null)
@@ -30,9 +30,9 @@ public class HuntedArea : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            if (GetComponentInChildren<MarkOfDeath>() != null)
+            if (collision.transform.root.GetComponentInChildren<MarkOfDeath>() != null)
             {
-                GetComponentInChildren<MarkOfDeath>().DestroyMark();
+                collision.transform.root.GetComponentInChildren<MarkOfDeath>().DestroyMark();
             }
             if (turtorial != null)
             {
