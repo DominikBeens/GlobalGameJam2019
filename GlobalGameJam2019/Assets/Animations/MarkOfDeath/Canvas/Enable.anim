@@ -29,14 +29,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: {x: 0, y: 0, z: 129.7}
-        inSlope: {x: 0, y: 0, z: 50.799942}
-        outSlope: {x: 0, y: 0, z: 50.799942}
+        inSlope: {x: 0, y: 0, z: 42.041332}
+        outSlope: {x: 0, y: 0, z: 42.041332}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.4
+        time: 0.48333332
         value: {x: 0, y: 0, z: 193.08}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -55,7 +55,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.4
+        time: 0.48333332
         value: 0
         inSlope: 0
         outSlope: 0
@@ -64,7 +64,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 1
         inSlope: 0
         outSlope: 0
@@ -74,6 +74,15 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.56666666
         value: 1
         inSlope: 0
         outSlope: 0
@@ -193,7 +202,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -312,7 +321,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.4
+        time: 0.48333332
         value: 0
         inSlope: 0
         outSlope: 0
@@ -321,7 +330,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 1
         inSlope: 0
         outSlope: 0
@@ -331,6 +340,15 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.53333336
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.56666666
         value: 1
         inSlope: 0
         outSlope: 0
@@ -450,7 +468,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -546,14 +564,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: 129.7
-        inSlope: 50.799942
-        outSlope: 50.799942
+        inSlope: 42.041332
+        outSlope: 42.041332
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.4
+        time: 0.48333332
         value: 193.08
         inSlope: 0
         outSlope: 0
@@ -602,7 +620,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
+  - time: 0.55
     functionName: AnimationEventKillBurb
     data: 
     objectReferenceParameter: {fileID: 0}
