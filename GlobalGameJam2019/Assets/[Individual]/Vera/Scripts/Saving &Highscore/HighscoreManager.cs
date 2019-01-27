@@ -335,8 +335,10 @@ public class HighscoreManager : MonoBehaviour
     {
         for (int i = 0; i < amountLevel; i++)
         {
-                Directory.Delete(Application.persistentDataPath + "/Level" + (i + 1).ToString(), true);
+            Directory.Delete(Application.persistentDataPath + "/Level" + (i + 1).ToString(), true);
+
         }
+        Directory.Delete(Application.persistentDataPath + "/Deaths", true);
         allHighscore.Clear();
         Awake();
     }
