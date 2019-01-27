@@ -50,6 +50,7 @@ public class MarkOfDeath : MonoBehaviour
     {
         Destroy(activeMark);
         activeMark = null;
+        markDuration = 0;
     }
 
     public void AnimationEventKillBurb()
