@@ -17,6 +17,7 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] int minZoom, maxZoom;
     [SerializeField] CinemachineCameraOffset cinCam;
     [SerializeField] CinemachineVirtualCamera cinCamera;
+    AudioSource wingFlap;
     float timerRight;
     float timerLeft;
     bool frozen = false;
@@ -25,10 +26,11 @@ public class BirdMovement : MonoBehaviour {
         myRidgidbody = GetComponent<Rigidbody2D>();
         myCheckbox = GetComponent<BoxCollider2D>();
         birdAnimator = GetComponent<Animator>();
+        wingFlap = GetComponent<AudioSource>();
     }
 
     void Start() {
-        cinCam.m_Offset = new Vector3(0, 0, -5);
+        cinCam.m_Offset = new Vector3(0, 0, minZoom);
     }
 
     void Update() {
@@ -59,19 +61,27 @@ public class BirdMovement : MonoBehaviour {
                 myRidgidbody.AddForce(Vector2.up * wingSpeed * 1.5f, ForceMode2D.Impulse);
                 birdAnimator.SetTrigger("FlapR");
                 birdAnimator.SetTrigger("FlapL");
+                wingFlap.pitch = Random.Range(3f, 2);
+                wingFlap.Play();
             }
             else {
                 if (newMovementAxis.x == 1) {
                     birdAnimator.SetTrigger("FlapR");
+                    wingFlap.pitch = Random.Range(3f, 2);
+                    wingFlap.Play();
                     timerRight = coolDown;
 
                     if (newMovementAxis.y == 1) {
                         birdAnimator.SetTrigger("FlapL");
+                        wingFlap.pitch = Random.Range(3f, 2);
+                        wingFlap.Play();
                         timerLeft = coolDown;
                     }
                 }
                 else {
                     birdAnimator.SetTrigger("FlapL");
+                    wingFlap.pitch = Random.Range(3f, 2);
+                    wingFlap.Play();
                     timerLeft = coolDown;
                 }
 
