@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ConsoleConfig
   m_EditorClassIdentifier: 
   toggleKey: 282
-  autoInitConsoleOnStartGame: 1
+  autoInitConsoleOnStartGame: 0
   startOpen: 0
   stackTraceFormat: 0
   stackTraceLineNumberHighlights: 1
+  disableLogsInBuild: 0
   detectInputWhenConsoleIsOpen: 0
   logLogColor: {r: 1, g: 1, b: 1, a: 1}
   warningLogColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

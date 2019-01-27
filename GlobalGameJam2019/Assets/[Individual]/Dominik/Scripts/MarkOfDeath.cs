@@ -5,18 +5,15 @@ public class MarkOfDeath : MonoBehaviour
 
     private GameObject activeMark;
     private float markDuration;
+    private Animator anim;
 
     [SerializeField] private GameObject markPrefab;
     [SerializeField] private Transform markSpawn;
     [SerializeField] private float triggerDuration = 3f;
 
-    [Space]
-
-    [SerializeField] private GameObject markTriggerCanvas;
-
     private void Awake()
     {
-        markTriggerCanvas.SetActive(false);
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -28,11 +25,11 @@ public class MarkOfDeath : MonoBehaviour
             if (markDuration >= triggerDuration)
             {
                 TriggerMark();
+                activeMark = null;
             }
         }
     }
 
-    [KeyCommand(KeyCode.G, PressType.KeyPressType.Down)]
     public void AddMark()
     {
         if (activeMark)
@@ -40,12 +37,13 @@ public class MarkOfDeath : MonoBehaviour
             DestroyMark();
         }
 
-        activeMark = Instantiate(markPrefab, markSpawn.position, Quaternion.identity);
+        activeMark = Instantiate(markPrefab, markSpawn.position, Quaternion.identity, markSpawn);
     }
 
     private void TriggerMark()
     {
-        markTriggerCanvas.SetActive(true);
+        anim.SetTrigger("Trigger");
+        DestroyMark();
     }
 
     public void DestroyMark()
