@@ -50,6 +50,7 @@ MonoBehaviour:
   chirps:
   - {fileID: 8300000, guid: 47269094192dd0e468d129f9a63981cb, type: 3}
   - {fileID: 8300000, guid: 6bc622cada40976428c291adbb23d87f, type: 3}
+  - {fileID: 8300000, guid: ec11053d2effad341bfe3ecaa35f06d1, type: 3}
 --- !u!82 &2075538435020723433
 AudioSource:
   m_ObjectHideFlags: 0

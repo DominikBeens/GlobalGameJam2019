@@ -23,7 +23,14 @@ public class ChirpController : MonoBehaviour
         mainCam = Camera.main;
     }
 
-    [KeyCommand(KeyCode.C, PressType.KeyPressType.Down)]
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Chirp();
+        }
+    }
+
     private void Chirp()
     {
         int randomChirp = Random.Range(0, chirps.Count);
