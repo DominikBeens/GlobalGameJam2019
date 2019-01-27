@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DB.MenuPack;
 
 public class MainMenu : MonoBehaviour
 {
@@ -60,6 +61,11 @@ public class MainMenu : MonoBehaviour
     public void GoHome()
     {
         SetMenu(CurrentMenu.main);
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.instance.QuitGame();        
     }
 
     private void Update()
