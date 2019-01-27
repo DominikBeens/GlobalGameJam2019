@@ -33,7 +33,7 @@ public class MarkOfDeath : MonoBehaviour
     }
 
     [KeyCommand(KeyCode.G, PressType.KeyPressType.Down)]
-    private void AddMark()
+    public void AddMark()
     {
         if (activeMark)
         {
@@ -48,7 +48,7 @@ public class MarkOfDeath : MonoBehaviour
         markTriggerCanvas.SetActive(true);
     }
 
-    private void DestroyMark()
+    public void DestroyMark()
     {
         Destroy(activeMark);
         activeMark = null;
