@@ -20,7 +20,7 @@ public class DeathPlacement : MonoBehaviour
         {
             for (int i = 0; i < HighscoreManager.instance.deaths[lvl].deathLocationsX.Count; i++)
             {
-                PlaceDeath(new Vector3(HighscoreManager.instance.deaths[lvl].deathLocationsX[i], HighscoreManager.instance.deaths[lvl].deathLocationsY[i], HighscoreManager.instance.deaths[lvl].deathLocationsZ[i]));
+               StartCoroutine(RandomStart(new Vector3(HighscoreManager.instance.deaths[lvl].deathLocationsX[i], HighscoreManager.instance.deaths[lvl].deathLocationsY[i], HighscoreManager.instance.deaths[lvl].deathLocationsZ[i])));
             }
         }
     }
@@ -44,6 +44,12 @@ public class DeathPlacement : MonoBehaviour
     {
         Destroy(deathObjects[index]);
         deathObjects.RemoveAt(0);
+    }
+
+    IEnumerator RandomStart(Vector3 location)
+    {
+        yield return new WaitForSeconds(Random.Range(0.0f, 1.0f));
+        PlaceDeath(location);
     }
 
     private void PlaceDeath(Vector3 location)
