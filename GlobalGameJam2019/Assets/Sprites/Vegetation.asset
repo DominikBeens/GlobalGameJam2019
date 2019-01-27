@@ -18,8 +18,13 @@ MonoBehaviour:
     m_Order: 0
     m_Sprites:
     - {fileID: 21300002, guid: efd251326e4f74e41b0ced328a0aa8d7, type: 3}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 21300006, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300008, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300010, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300012, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300014, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300016, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
+    - {fileID: 21300018, guid: 1964a6967d641074ba950847f13c01e0, type: 3}
   - m_Start: 134
     m_End: 226
     m_Order: 0
