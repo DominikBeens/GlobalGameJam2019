@@ -20,7 +20,24 @@ public class LeaderBoard : MonoBehaviour
             {
                 levels.Add(new LevelLeaderBoard());
             }
-            levels[i].Sort(HighscoreManager.instance.allHighscore[i].scores, HighscoreManager.instance.allHighscore[i].names);
+            else if (levels[i] == null)
+            {
+                levels[i] = new LevelLeaderBoard();
+            }
+            
+        }
+        if(levels.Count != 0)
+        {
+            print(HighscoreManager.instance.allHighscore.Count);
+            for (int i = 0; i < levels.Count; i++)
+            {
+                print(HighscoreManager.instance.allHighscore[i].scores.Count + "   " + HighscoreManager.instance.allHighscore[i].names.Count);
+                print(levels[i]);
+                if(i < HighscoreManager.instance.allHighscore.Count)
+                {
+                    levels[i].Sort(HighscoreManager.instance.allHighscore[i].scores, HighscoreManager.instance.allHighscore[i].names);
+                }
+            }
         }
         current = 0;
         NewList();

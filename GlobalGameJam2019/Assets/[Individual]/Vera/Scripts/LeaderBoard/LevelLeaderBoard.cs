@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class LevelLeaderBoard : MonoBehaviour
+[System.Serializable]
+public class LevelLeaderBoard
 {
     public List<int> score = new List<int>();
     public List<string> playerName = new List<string>();
@@ -24,10 +24,11 @@ public class LevelLeaderBoard : MonoBehaviour
             List<int> sortedScore = new List<int>();
             List<string> sortedName = new List<string>();
 
-            int highest = 0;
-            int index = 0;
+            
             while (tempScore.Count != 0 || sortedScore.Count == 10)
             {
+                int highest = 0;
+                int index = 0;
                 for (int i = 0; i < tempScore.Count; i++)
                 {
                     if (tempScore[i] > highest)
