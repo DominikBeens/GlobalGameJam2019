@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class BirdMovement : MonoBehaviour {
@@ -9,15 +10,16 @@ public class BirdMovement : MonoBehaviour {
     [SerializeField] LayerMask chickenGround;
     [SerializeField] int wingSpeed;
     [SerializeField] int rotationAmount;
-    [SerializeField] Transform myCamera;
     [SerializeField] float stabelizeSpeed;
     [SerializeField] float stabelizeAirSpeed;
     [SerializeField] float coolDown;
     [SerializeField] int zoomSpeed;
     [SerializeField] int minZoom, maxZoom;
+    [SerializeField] CinemachineCameraOffset cinCam;
+    [SerializeField] CinemachineVirtualCamera cinCamera;
     float timerRight;
     float timerLeft;
-    bool frozen;
+    bool frozen = false;
 
     void Awake() {
         myRidgidbody = GetComponent<Rigidbody2D>();
@@ -26,13 +28,16 @@ public class BirdMovement : MonoBehaviour {
     }
 
     void Start() {
-        myCamera.position = new Vector3(transform.position.x, transform.position.y, -5);
+        cinCam.m_Offset = new Vector3(0, 0, -5);
     }
 
     void Update() {
         if (!frozen) {
-            myCamera.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(myCamera.localPosition.z + Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed, minZoom, maxZoom));
+            cinCam.m_Offset = new Vector3(0, 0, Mathf.Clamp(cinCam.m_Offset.z + Input.GetAxisRaw("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed, minZoom, maxZoom));
             MovementUpdate();
+        }
+        else {
+            cinCamera.m_Follow = null;
         }
 
     }
