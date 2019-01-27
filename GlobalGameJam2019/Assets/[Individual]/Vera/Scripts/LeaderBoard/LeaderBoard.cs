@@ -49,6 +49,11 @@ public class LeaderBoard : MonoBehaviour
         currentText.text = "Level: " + (current + 1).ToString();
         if(current < levels.Count)
         {
+            for (int i = 0; i < namesText.Count; i++)
+            {
+                namesText[i].text = "";
+                scoreText[i].text = "";
+            }
             for (int i = 0; i < levels[current].score.Count; i++)
             {
                 namesText[i].text = (i + 1).ToString()+ ": " + levels[current].playerName[i];
