@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             bird.GetComponentInChildren<BirdMovement>().Freeze();
             NotificationManager.instance?.NewNotification("Level Failed!");
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
 
             Destroy(bird);
 
