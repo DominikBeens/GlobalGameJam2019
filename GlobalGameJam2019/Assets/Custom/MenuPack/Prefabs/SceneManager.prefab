@@ -2607,11 +2607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7406078124044218753}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: ResumeButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -2742,6 +2737,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: ResumeButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -2806,11 +2806,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting Screen Mode
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -2846,6 +2841,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 175814496055931161}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting Screen Mode
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3144,11 +3144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting Shadow Quality
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -3184,6 +3179,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 1600529066457506184}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting Shadow Quality
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3481,11 +3481,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7406078124044218753}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: QuitGameButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -3646,6 +3641,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000051
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: QuitGameButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -3710,11 +3710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7406078124044218753}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: MainMenuButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -3885,6 +3880,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: MainMenuButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -3954,11 +3954,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting Anti-aliasing
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -3994,6 +3989,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 2341424664390360558}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting Anti-aliasing
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4291,11 +4291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting Texture Quality
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -4331,6 +4326,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 2471063477794017559}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting Texture Quality
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4628,11 +4628,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224955506523439258}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: ToggleGraphicsMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -4752,6 +4747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: ToggleGraphicsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
@@ -5043,11 +5043,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7406078124044218753}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: SettingsButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -5198,6 +5193,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000051
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: SettingsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -5267,11 +5267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting Setting Title
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -5307,6 +5302,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 6695544868334074720}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting Resolution
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5605,11 +5605,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224745417583461732}
     m_Modifications:
-    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
-        type: 3}
-      propertyPath: m_Name
-      value: Setting V-Sync
-      objectReference: {fileID: 0}
     - target: {fileID: 632267644703541498, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_textInfo.textComponent
@@ -5645,6 +5640,11 @@ PrefabInstance:
       propertyPath: m_ItemText
       value: 
       objectReference: {fileID: 6883033497135747310}
+    - target: {fileID: 2316781936901793666, guid: 23a320460b91f8841b8979e1f6c3bc59,
+        type: 3}
+      propertyPath: m_Name
+      value: Setting V-Sync
+      objectReference: {fileID: 0}
     - target: {fileID: 573150259142875568, guid: 23a320460b91f8841b8979e1f6c3bc59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6178,11 +6178,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224955506523439258}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: ToggleOtherMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -6303,6 +6298,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: ToggleOtherMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -6357,11 +6357,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224955506523439258}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: ToggleAudioMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -6482,6 +6477,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: ToggleAudioMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -6536,11 +6536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224955506523439258}
     m_Modifications:
-    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
-        type: 3}
-      propertyPath: m_Name
-      value: BackButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3625482992114642642, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
       propertyPath: m_text
@@ -6660,6 +6655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729943995761814666, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
+        type: 3}
+      propertyPath: m_Name
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 3626414437910021680, guid: 04bf4566a8d27f84397ad7a0c1d6f634,
         type: 3}
