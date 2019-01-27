@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    private GameObject bird;
+    public GameObject bird;
 
     [SerializeField] private GameObject birdPrefab;
 

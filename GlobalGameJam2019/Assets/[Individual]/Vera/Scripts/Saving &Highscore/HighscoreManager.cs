@@ -12,6 +12,7 @@ public class HighscoreManager : MonoBehaviour
     public string currentName;
     public List <AllHighscore> allHighscore = new List<AllHighscore>();
     public List <AllNames> names = new List<AllNames>();
+    public List<DeathSaveFile> deaths = new List<DeathSaveFile>();
     public int amountLevel;
 
     private void Awake()
@@ -102,6 +103,29 @@ public class HighscoreManager : MonoBehaviour
                 }
                 
             }
+
+            if(File.Exists(Application.persistentDataPath + "/Deaths" + "/SavedDeaths_" + (i+1).ToString() + ".xml"))
+            {
+                if(i < deaths.Count)
+                {
+                    deaths[i] = LoadDeaths(i);
+                }
+                else
+                {
+                    deaths.Add(LoadDeaths(i));
+                }
+            }
+            else
+            {
+                if (i < deaths.Count)
+                {
+                    deaths[i] = new DeathSaveFile();
+                }
+                else
+                {
+                    deaths.Add(new DeathSaveFile());
+                }
+            }
         }
 
     }
@@ -112,6 +136,10 @@ public class HighscoreManager : MonoBehaviour
         if(!File.Exists(Application.persistentDataPath + "/Level" + level.ToString()))
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/Level" + level.ToString());
+        }
+        if(!File.Exists(Application.persistentDataPath + "/Deaths"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Deaths");
         }
     }
 
@@ -258,6 +286,30 @@ public class HighscoreManager : MonoBehaviour
         }
     }
 
+    private void SaveDeaths(DeathSaveFile tS, int level)
+    {
+        level++;
+        DeathByte save = new DeathByte();
+        save.savefile = ObjectToByteArray(tS);
+        var serializer = new XmlSerializer(typeof(DeathByte));
+        using (var stream = new FileStream(Application.persistentDataPath + "/Deaths" + "/SavedDeaths_" + level.ToString() + ".xml", FileMode.Create))
+        {
+            serializer.Serialize(stream, save);
+        }
+    }
+
+    private DeathSaveFile LoadDeaths(int level)
+    {
+        level++;
+        var serializer = new XmlSerializer(typeof(DeathByte));
+        using (var stream = new FileStream(Application.persistentDataPath + "/Deaths" +  "/SavedDeaths_" + level.ToString() + ".xml", FileMode.Open))
+        {
+            DeathByte save = serializer.Deserialize(stream) as DeathByte;
+            DeathSaveFile deaths = (DeathSaveFile)ByteArrayToObject(save.savefile);
+            return deaths;
+        }
+    }
+
     private void OnApplicationQuit()
     {
         NamesByteSavefile saveFile = new NamesByteSavefile();
@@ -271,6 +323,10 @@ public class HighscoreManager : MonoBehaviour
                 SaveScore(allHighscore[i].scores[o], allHighscore[i].names[o],i,allHighscore[i].levelPlayed[o]);
             }
             SaveNames(saveFile,i);
+            if(i < deaths.Count)
+            {
+                SaveDeaths(deaths[i], i);
+            }
         }
         
     }

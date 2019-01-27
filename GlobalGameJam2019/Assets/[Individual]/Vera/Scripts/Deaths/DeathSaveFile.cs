@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathSaveFile : MonoBehaviour
+[System.Serializable]
+public class DeathSaveFile
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<float> deathLocationsX = new List<float>();
+    public List<float> deathLocationsY = new List<float>();
+    public List<float> deathLocationsZ = new List<float>();
 }

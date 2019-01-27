@@ -27,7 +27,7 @@ public class NewHighscore : MonoBehaviour
     [SerializeField] private Image circle;
     [SerializeField] private GameObject feather;
 
-    [SerializeField] private int level;
+    public int level;
 
     private void Awake()
     {
@@ -60,6 +60,7 @@ public class NewHighscore : MonoBehaviour
     {
         if(timeLeft == 0)
         {
+            DeathPlacement.instance?.AddDeath(GameManager.instance.bird.transform.position);
             LevelManager.instance.ShowTimeUpPopup();
             return;
         }
