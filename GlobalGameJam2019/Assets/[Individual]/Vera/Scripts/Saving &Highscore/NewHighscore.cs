@@ -106,7 +106,6 @@ public class NewHighscore : MonoBehaviour
         pickupScore += score;
     }
 
-    [KeyCommand(KeyCode.C, PressType.KeyPressType.Down)]
     private void Coin()
     {
         Pickup(50);
